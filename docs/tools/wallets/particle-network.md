@@ -20,13 +20,13 @@ Please view the third-party content disclaimer [<ins>here</ins>](https://github.
 
 ---
 
-**Particle Network** is the Intent-Centric, Modular Access Layer of Web3. With Particle's Wallet-as-a-Service, developers can curate unparalleled user experience through modular and customizable EOA/AA embedded wallet components. By utilizing MPC-TSS for key management, Particle can streamline onboarding via familiar Web2 accounts—such as Google accounts, email addresses, and phone numbers.
+**Particle Network** is the Intent-Centric, Modular Access Layer of Web3. With Particle's [Smart Wallet-as-a-Service](https://blog.particle.network/announcing-our-smart-wallet-as-a-service-modular-stack-upgrading-waas-with-erc-4337/), developers can curate unparalleled user experience through modular and customizable EOA/AA embedded wallet components. By utilizing MPC-TSS for key management, Particle can streamline onboarding via familiar Web2 accounts—such as Google accounts, email addresses, and phone numbers.
 
 Through APIs and SDKs available on both mobile and desktop platforms, developers can integrate Particle's Wallet-as-a-Service to enable secure key generation and management initiated by Web2 logins, with the capacity to be customized and implemented in a way that matches the specific needs of a given application.
 
-Additionally, across a variety of EVM chains, including Polygon, Particle's Wallet-as-a-Service can facilitate full-stack, modular implementation of Account Abstraction- handling key management.
+Additionally, across a variety of EVM chains, including Polygon (and Polygon zkEVM), Particle's Wallet-as-a-Service can facilitate full-stack, modular implementation of Account Abstraction- handling key management.
 
-Particle Wallet itself is available either in an application-embedded format, depending on the type of integration a specific developer chooses, or standalone through the [mobile](https://apps.apple.com/us/app/particle-crypto-wallet/id1632425771) or [web](https://wallet.particle.network) application. Particle Wallet offers a range of features, including a toggleable ERC-4337 mode, 1inch-powered swaps, LI.FI-powered bridging, and other standard and miscellaneous functions.
+Particle Wallet itself is available either in an application-embedded format, depending on the type of integration a specific developer chooses, or standalone through the [mobile](https://apps.apple.com/us/app/particle-crypto-wallet/id1632425771) or [web](https://wallet.particle.network) application. Particle Wallet offers a range of features, including native ERC-4337 account abstraction support, 1inch-powered swaps, LI.FI-powered bridging, and other standard and miscellaneous functions.
 
 **Type**: Non-custodial <br/>
 **Private Key Storage**: User’s local device / Encrypted and stored with Particle <br/>
@@ -61,14 +61,14 @@ const particle = new ParticleNetwork({
   chainId: "137", //optional: current chain id, default 1.
   wallet: {   //optional: by default, the wallet interface is displayed in the bottom right corner of the webpage as an embedded popup.
     displayWalletEntry: true,  //show wallet when connecting with particle.
-    uiMode: "dark",  //optional: light or dark, if not set, the default is the same as web auth.
-    supportChains: [{ id: 137, name: "Polygon"}, { id: 1, name: "Ethereum"}], // optional: web wallet support chains.
+    uiMode: "dark",  //optional: light or dark
+    supportChains: [{ id: 137, name: "Polygon"}, { id: 1, name: "Ethereum"}], // optional: the chains supported by the wallet instance
     customStyle: {}, //optional: custom wallet style
   },
   securityAccount: { //optional: particle security account config
-    //prompt set payment password. 0: None, 1: Once(default), 2: Always
+    // prompt to set payment password. 0: None, 1: Once(default), 2: Always
     promptSettingWhenSign: 1,
-    //prompt set master password. 0: None(default), 1: Once, 2: Always
+    // prompt to set master password. 0: None(default), 1: Once, 2: Always
     promptMasterPasswordSettingWhenLogin: 1
   },
 });
@@ -87,5 +87,5 @@ if (!particle.auth.isLogin()) {
 
 From this point, you can utilize `web3.js` as usual via `window.web3`. Signatures, confirmations, and other interactions will be routed to the embedded Particle interface, provided that a user is connected.
 
-The functionality of this SDK, alongside the various other SDKs & APIs that Particle offers, extends far. You can learn more about integrating and interacting with Particle [here](https://docs.particle.network/getting-started/get-started).
+The functionality of this SDK, alongside the various other SDKs & APIs that Particle offers, extends far. You can learn more about integrating and interacting with Particle [here](https://docs.particle.network/getting-started/get-started), or explore their tech stack [here](https://blog.particle.network/)https://blog.particle.network/.
 
